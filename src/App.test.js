@@ -1,8 +1,19 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from 'react'
+import App from './App'
+import { shallow } from 'enzyme'
+import PersonList from "./PersonList"
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App', ()=>{
+  let addWrapper;
+  beforeAll(()=>{
+    addWrapper = shallow(<App/>)
+  })
+  it('',()=>{
+     addWrapper.find(PersonList);
+  })
+
+  it('satet',()=>{
+    const stateNotNull  = addWrapper.state();
+    expect(stateNotNull).not.toBeNull();
+  })
+})
