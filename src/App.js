@@ -20,7 +20,6 @@ import './App.css';
 import React, { useState } from 'react'
 
 
-
 export default function App (){
 
 const [state, setState] = useState({
@@ -28,13 +27,16 @@ const [state, setState] = useState({
   password:''
 })
 
-  const onSubmit = (e) =>{
-    if(state.user === ''){
+ const handelSubmit = (event) => {
+   if(state.user === ''){
     alert('username kosong')
-    }else{
-    alert(`username : ${state.user} Password : ${state.password}`)
     }
+     return 'sukses'
+    //  alert(`username : ${state.user} Password : ${state.password}`)
+    
   }
+
+  // }
 
   const handelOnChange = e =>{
    state[e.target.name] = e.target.value
@@ -49,20 +51,21 @@ const [state, setState] = useState({
         <p className="login">Login</p>
       </div>
       <div className="Form" >
-        <form>
+        <form title="submit" onSubmit={handelSubmit}>
           <li>
             <label className="form" >User Name</label>
-            <input id="user"  type="text"  name="user" onChange={handelOnChange} ></input>
+            <input title="user"  type="text"  name="user" onChange={handelOnChange} ></input>
           </li>
           <li>
             <label>Password</label>
-            <input id="pas" type="password" autoComplete="password"  name="password" onChange={handelOnChange}></input>
+            <input title="password" type="password" autoComplete="password"  name="password" onChange={handelOnChange}></input>
           </li>
           <li>
-            <button type="submit" onClick={onSubmit}>Click me</button>
+            <button title="sub" type="submit">Click me</button>
           </li>
         </form>
       </div>
     </div>
   )
 }
+ 
